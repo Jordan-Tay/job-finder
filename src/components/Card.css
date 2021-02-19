@@ -1,0 +1,47 @@
+.card {
+  border: 1px solid #ccc;
+  margin-top: 15pt;
+  border-radius: 3pt;
+  cursor: pointer;
+}
+
+.card {
+  transition-duration: 0.2s;
+}
+
+.card:hover {
+  border: 1px solid white;
+  box-shadow: 2pt 3pt 10pt 2pt #ddd;
+}
+
+.card > .company-container {
+  display: flex;
+  align-items: center;
+  margin-top: 5pt;
+  margin-bottom: 15pt;
+}
+
+.card > .company-container > h2 {
+  font-size: 15pt;
+  font-family: garamond-bold;
+  text-align: left;
+  margin-left: 15pt;
+  margin-right: 15pt;
+}
+
+.card > .company-container > img {
+  width: 30px;
+  height: 30px;
+  margin-left: 15pt;
+  right: 15pt;
+  border-radius: 3pt;
+}
+
+.card > h3 {
+  font-size: 13pt;
+  font-family: garamond;
+  text-align: left;
+  margin-left: 15pt;
+  margin-right: 15pt;
+}
+
