@@ -32,7 +32,7 @@ const GET_JOBS = gql`
   }
 `;
 
-const Nav = () => {
+const Nav = props => {
   const [input, setInput] = useState("");
   const [jobs, setJobs] = useState(<></>);
 
@@ -49,9 +49,10 @@ const Nav = () => {
       setJobs(jobs.map(job => {
         return (
           <Card 
+            key={job.id}
             title={job.title} 
-            cities={job.cities != null ? job.cities.map(city => city.name) : []} 
-            countries={job.countries != null ? job.countries.map(country => country.name) : []}
+            cities={job.cities.map(city => city.name)} 
+            countries={job.countries.map(country => country.name)}
             description={job.description}
             applyUrl={job.applyUrl}
             companyName={job.company.name}
@@ -59,6 +60,7 @@ const Nav = () => {
             companyLogoUrl={job.company.logoUrl}
             userEmail={job.userEmail}
             postedAt={job.postedAt}
+            displayDetails={props.displayDetails}
           />
         )
       }));

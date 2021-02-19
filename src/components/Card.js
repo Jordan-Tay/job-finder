@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Details from './Details';
 import './Card.css';
 
-const Card = (props) => {
+const Card = props => {
   const handleClick = () => {
-    
+    props.displayDetails({...props}); 
   }
 
   return (

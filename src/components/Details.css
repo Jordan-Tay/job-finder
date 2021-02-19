@@ -1,0 +1,58 @@
+.details {
+  height: 90vh;
+  width: 62%;
+  position: absolute;
+  top: 5vh;
+  right: 4%;
+  border-radius: 3pt;
+  border: 1px solid #ccc;
+  box-shadow: 2pt 3pt 10pt 2pt #ddd;
+  overflow: auto;
+}
+
+.subheader-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: grey;
+}
+
+.subheader-container > a > button {
+  height: 25pt;
+  width: 80pt;
+  border: 1px solid #ccc;
+  border-radius: 3pt;
+  font-size: 12pt;
+  color: white;
+  background-color: blue;
+  font-family: garamond-bold;
+  transition-duration: 0.4s;
+}
+
+.subheader-container > a > button:hover {
+  color: black;
+  background-color: #f5fffa;
+}
+
+.details > * {
+  text-align: left;
+  margin: 30pt;
+  font-family: garamond;
+}
+
+.details > h1 {
+  font-family: garamond-bold;
+}
+
+.details > p, .details > ul > li, .details > h4, .details > h5, .details > h6 {
+  font-size: 14pt;
+  font-family: garamond;
+}

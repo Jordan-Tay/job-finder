@@ -27,7 +27,7 @@
   margin-right: 10pt;
 }
 
-button {
+.search-container > button {
   height: 100%;
   width: 17%; 
   border: 1px solid #ccc;
@@ -36,12 +36,9 @@ button {
   color: black;
   background-color: #fff;
   font-family: garamond;
-}
-
-button {
   transition-duration: 0.4s;
 }
 
-button:hover {
+.search-container > button:hover {
   background: #eee;
 }
