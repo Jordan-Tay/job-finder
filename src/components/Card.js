@@ -17,6 +17,7 @@ const Card = props => {
         <h2>{props.title}</h2>
       </div>
       <h3>{props.companyName} - {props.cities.join('/')}</h3> 
+      <h6>Posted: {props.postedAt.substring(0, 10)}</h6> 
     </div>
   );
 }

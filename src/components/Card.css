@@ -45,3 +45,10 @@
   margin-right: 15pt;
 }
 
+.card >h6 {
+  text-align: left;
+  font-style: italic;
+  color: grey;
+  margin-left: 15pt;
+  margin-right: 15pt;
+}
