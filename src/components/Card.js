@@ -4,7 +4,7 @@ import './Card.css';
 
 const Card = props => {
   const handleClick = () => {
-    props.displayDetails({...props}); 
+    props.displayDetails(props); 
   }
 
   return (

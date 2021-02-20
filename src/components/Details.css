@@ -10,6 +10,21 @@
   overflow: auto;
 }
 
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-container > h1 {
+  margin-right: 20pt;
+}
+
+.bookmark-icon {
+  width: 30pt;
+  height: 30pt;
+}
+
 .subheader-container {
   display: flex;
   align-items: center;

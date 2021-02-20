@@ -1,29 +1,24 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Nav from './components/Nav';
 import Details from './components/Details';
+import { observer } from 'mobx-react';
 import './App.css';
 
-function App() {
+function App(props) {
   const [details, setDetails] = useState(<></>);
 
-  useEffect(() => {
-    console.log("update");
-    console.log(details);
-  }, [details]);
+  const bookmarks = props.bookmarks;
 
   const displayDetails = det => {
-    setDetails(<Details {...det} />);
-    console.log(details);
-    console.log(det);
-    console.log(<Details {...det} />);
+    setDetails(<Details {...det} bookmarks={bookmarks} />);
   };
 
   return (
     <div className="App">
       {details}
-      <Nav displayDetails={displayDetails}/>
+      <Nav bookmarks={props.bookmarks} displayDetails={displayDetails}/>
     </div>
   );
 }
 
-export default App;
+export default observer(App);

@@ -12,6 +12,13 @@
   width: 100%;
   height: 30pt;
   display: flex;
+  align-items: center;
+}
+
+.spinner {
+  position: absolute;
+  left: 19.5%;
+  z-index: 1;
 }
 
 .search {
@@ -24,7 +31,11 @@
   padding-left: 10pt;
   padding-right: 10pt;
   font-family: Garamond;
-  margin-right: 10pt;
+  margin-right: 5pt;
+}
+
+button {
+  cursor: pointer;
 }
 
 .search-container > button {
@@ -37,8 +48,23 @@
   background-color: #fff;
   font-family: garamond;
   transition-duration: 0.4s;
+  margin-left: 5pt;
 }
 
 .search-container > button:hover {
   background: #eee;
+}
+
+.bookmarks-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 5pt;
+  border-bottom: 1px solid #ccc;
+}
+
+.bookmarks-container > span {
+  font-size: 13pt;
+  font-family: garamond-bold;
+  margin-bottom: 0pt;
+  cursor: pointer;
 }

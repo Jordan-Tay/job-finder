@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ApolloClient, { gql } from 'apollo-boost';
 import { ApolloProvider, graphql } from 'react-apollo';
 import Card from './Card';
+import { observer } from 'mobx-react';
 import './Nav.css';
+import UseAnimations from 'react-useanimations';
+import loading2 from 'react-useanimations/lib/loading2';
 
 const client = new ApolloClient({
   uri: 'http://localhost:5000/graphql',
@@ -35,24 +38,26 @@ const GET_JOBS = gql`
 const Nav = props => {
   const [input, setInput] = useState("");
   const [jobs, setJobs] = useState(<></>);
+  const [loading, setLoading] = useState(false);
 
   const handleClick = (location) => {
-    console.log(location); 
+    setLoading(true);
     client.query({
       query: GET_JOBS,
       variables: {
         location: location
       }
     }).then(res => {
+      setLoading(false);
       var jobs = res.data.getJobs;
-      console.log(jobs);
       setJobs(jobs.map(job => {
         return (
-          <Card 
+          <Card
             key={job.id}
-            title={job.title} 
-            cities={job.cities.map(city => city.name)} 
-            countries={job.countries.map(country => country.name)}
+            id={job.id}
+            title={job.title}
+            cities={job.cities == null ? [] : job.cities.map(city => city.name)}
+            countries={job.cities == null ? [] : job.countries.map(country => country.name)}
             description={job.description}
             applyUrl={job.applyUrl}
             companyName={job.company.name}
@@ -61,25 +66,52 @@ const Nav = props => {
             userEmail={job.userEmail}
             postedAt={job.postedAt}
             displayDetails={props.displayDetails}
+            bookmarked={false}
           />
         )
       }));
     });
   }
 
+  const showBookmarks = () => {
+    setJobs(Array.from(props.bookmarks.bookmarks.values()).map(bookmark => {
+      return <Card
+        key={bookmark.getDetails().id}
+        id={bookmark.getDetails().id}
+        title={bookmark.getDetails().title}
+        cities={Array.from(bookmark.getDetails().cities.values())}
+        countries={Array.from(bookmark.getDetails().countries.values())}
+        description={bookmark.getDetails().description}
+        applyUrl={bookmark.getDetails().applyUrl}
+        companyName={bookmark.getDetails().companyName}
+        companyWebsiteUrl={bookmark.getDetails().companyWebsiteUrl}
+        companyLogoUrl={bookmark.getDetails().companyLogoUrl}
+        userEmail={bookmark.getDetails().userEmail}
+        postedAt={bookmark.getDetails().postedAt}
+        displayDetails={props.displayDetails}
+        bookmarked={true}
+      />
+    }));
+  }
+
   return (
     <ApolloProvider client={client}>
       <div className="nav">
         <div className="search-container">
-          <input 
+          <input
             className="search"
             type="text"
             placeholder="Location"
             onInput={e => setInput(e.target.value)}
           />
-          <button onClick = {() => handleClick(input)}>
+          {loading && <UseAnimations animation={loading2} size={40} className="spinner" />}
+          <button onClick={() => handleClick(input)}>
             Search
           </button>
+        </div>
+        <div className="bookmarks-container">
+          <span onClick={() => handleClick(input)}>Search Results</span>
+          <span onClick={() => showBookmarks()}>Bookmarks</span>
         </div>
         {jobs}
       </div>
@@ -87,4 +119,4 @@ const Nav = props => {
   )
 }
 
-export default Nav;
+export default observer(Nav);
