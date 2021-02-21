@@ -58,12 +58,12 @@ const Nav = props => {
             title={job.title}
             cities={job.cities == null ? [] : job.cities.map(city => city.name)}
             countries={job.cities == null ? [] : job.countries.map(country => country.name)}
-            description={job.description}
-            applyUrl={job.applyUrl}
-            companyName={job.company.name}
-            companyWebsiteUrl={job.company.websiteUrl}
-            companyLogoUrl={job.company.logoUrl}
-            userEmail={job.userEmail}
+            description={job.description == null ? "" : job.description}
+            applyUrl={job.applyUrl == null ? "" : job.applyUrl}
+            companyName={job.company.name == null ? "" : job.company.name}
+            companyWebsiteUrl={job.company.websiteUrl == null ? "" : job.company.websiteUrl}
+            companyLogoUrl={job.company.logoUrl == null ? "" : job.company.logoUrl}
+            userEmail={job.userEmail == null ? "" : job.userEmail}
             postedAt={job.postedAt}
             displayDetails={props.displayDetails}
             bookmarked={false}
@@ -75,19 +75,11 @@ const Nav = props => {
 
   const showBookmarks = () => {
     setJobs(Array.from(props.bookmarks.bookmarks.values()).map(bookmark => {
+      var { cities, countries, ...other } = bookmark;
       return <Card
-        key={bookmark.getDetails().id}
-        id={bookmark.getDetails().id}
-        title={bookmark.getDetails().title}
-        cities={Array.from(bookmark.getDetails().cities.values())}
-        countries={Array.from(bookmark.getDetails().countries.values())}
-        description={bookmark.getDetails().description}
-        applyUrl={bookmark.getDetails().applyUrl}
-        companyName={bookmark.getDetails().companyName}
-        companyWebsiteUrl={bookmark.getDetails().companyWebsiteUrl}
-        companyLogoUrl={bookmark.getDetails().companyLogoUrl}
-        userEmail={bookmark.getDetails().userEmail}
-        postedAt={bookmark.getDetails().postedAt}
+        {...other}
+        cities={Array.from(cities.values())}
+        countries={Array.from(countries.values())}
         displayDetails={props.displayDetails}
         bookmarked={true}
       />

@@ -12,23 +12,6 @@ const Bookmark = types.model('Bookmark', {
   companyLogoUrl: types.string,
   userEmail: types.string,
   postedAt: types.string,
-}).actions(self => ({
-  getDetails() {
-    return {
-      key: self.id,
-      id: self.id,
-      title: self.title,
-      cities: self.cities,
-      countries: self.countries,
-      description: self.description,
-      applyUrl: self.applyUrl,
-      companyName: self.companyName,
-      companyWebsiteUrl: self.companyWebsiteUrl,
-      companyLogoUrl: self.companyLogoUrl,
-      userEmail: self.userEmail,
-      postedAt: self.postedAt,
-    }
-  }
-}));
+});
 
 export default Bookmark;

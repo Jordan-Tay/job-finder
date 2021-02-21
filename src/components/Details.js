@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { MdBookmarkBorder } from 'react-icons/md'
-import UseAnimations from 'react-useanimations';
-import bookmark from 'react-useanimations/lib/bookmark';
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
+import IconButton from '@material-ui/core/IconButton';
+import Tooltip from '@material-ui/core/Tooltip';
 import './Details.css';
-
 const Details = props => {
   const [bookmarked, setBookmarked] = useState(props.bookmarked);
 
@@ -22,17 +22,7 @@ const Details = props => {
       setBookmarked(false);
     } else {
       props.bookmarks.put({
-        id: props.id,
-        title: props.title,
-        cities: props.cities,
-        countries: props.countries,
-        description: props.description == null ? "" : props.description,
-        applyUrl: props.applyUrl == null ? "" : props.applyUrl,
-        companyName: props.companyName == null ? "" : props.companyName,
-        companyWebsiteUrl: props.companyWebsiteUrl == null ? "" : props.companyWebsiteUrl,
-        companyLogoUrl: props.companyLogoUrl == null ? "" : props.companyLogoUrl,
-        userEmail: props.userEmail == null ? "" : props.userEmail,
-        postedAt: props.postedAt, 
+        ...props
       });
       setBookmarked(true);
     }
@@ -47,8 +37,19 @@ const Details = props => {
     <div className="details">
       <div className="header-container">
         <h1>{props.title}</h1>
-        <MdBookmarkBorder onClick={() => handleBookmark()} style={bookmarked ? { color: "red" } : {color: "black"}} className="bookmark-icon" />
-        {/* <UseAnimations size={50} backgroundColor="blue" animation={bookmark} onClick={() => handleBookmark()} reverse={bookmarked} className="bookmark-icon" /> */}
+        <Tooltip
+          title={<span style={{fontFamily: "garamond"}}>Bookmark</span>}
+        >
+          <IconButton
+            onClick={() => handleBookmark()}
+            className="icon-button"
+          >
+            {bookmarked
+              ? <BookmarkIcon fontSize="large" />
+              : <BookmarkBorderIcon fontSize="large" />
+            }
+          </IconButton>
+        </Tooltip>
       </div>
       <h2><a href={props.companyWebsiteUrl} target="_blank" rel="noopener noreferrer">{props.companyName}</a></h2>
       <div className="subheader-container">
