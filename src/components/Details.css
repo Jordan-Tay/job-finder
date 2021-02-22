@@ -48,18 +48,20 @@ a:hover {
 .subheader-container > a > button {
   height: 25pt;
   width: 80pt;
-  border: 1px solid #ccc;
+  border: 1px solid #99ccff;
   border-radius: 3pt;
   font-size: 12pt;
-  color: white;
-  background-color: blue;
+  color: black;
+  background-color: #99ccff;
   font-family: garamond-bold;
   transition-duration: 0.4s;
+  cursor: pointer;
 }
 
 .subheader-container > a > button:hover {
   color: black;
-  background-color: #f5fffa;
+  border: 1px solid navy;
+  background-color: aliceblue;
 }
 
 .details > * {

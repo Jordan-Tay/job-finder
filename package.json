@@ -6,6 +6,8 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.7.1",
@@ -22,6 +24,7 @@
     "react-icons": "^4.2.0",
     "react-markdown": "^5.0.3",
     "react-scripts": "4.0.2",
+    "react-spring": "^8.0.27",
     "react-useanimations": "^2.0.6",
     "web-vitals": "^1.1.0"
   },

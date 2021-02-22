@@ -34,11 +34,7 @@
   margin-right: 5pt;
 }
 
-button {
-  cursor: pointer;
-}
-
-.search-container > button {
+.submit-button {
   height: 100%;
   width: 17%; 
   border: 1px solid #ccc;
@@ -49,9 +45,10 @@ button {
   font-family: garamond;
   transition-duration: 0.4s;
   margin-left: 5pt;
+  cursor: pointer;
 }
 
-.search-container > button:hover {
+.submit-button:hover {
   background: #eee;
 }
 

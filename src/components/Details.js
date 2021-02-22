@@ -38,7 +38,7 @@ const Details = props => {
       <div className="header-container">
         <h1>{props.title}</h1>
         <Tooltip
-          title={<span style={{fontFamily: "garamond"}}>Bookmark</span>}
+          title={<span style={{fontSize: 13, fontFamily: "garamond"}}>Bookmark</span>}
         >
           <IconButton
             onClick={() => handleBookmark()}
@@ -51,7 +51,9 @@ const Details = props => {
           </IconButton>
         </Tooltip>
       </div>
-      <h2><a href={props.companyWebsiteUrl} target="_blank" rel="noopener noreferrer">{props.companyName}</a></h2>
+      <div>
+        <h2><a href={props.companyWebsiteUrl} target="_blank" rel="noopener noreferrer">{props.companyName}</a> - <span style={{color:"gray", fontStyle:"italic"}}>{props.commitment}</span></h2>
+      </div>
       <div className="subheader-container">
         <h3>-{props.cities.join('/')}{countries}</h3>
         <a href={props.applyUrl} target="_blank" rel="noopener noreferrer"><button >Apply</button></a>

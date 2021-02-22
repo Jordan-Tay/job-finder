@@ -21,12 +21,23 @@
   margin-bottom: 15pt;
 }
 
-.card > .company-container > h2 {
+.card > .company-container > div > h2 {
   font-size: 15pt;
   font-family: garamond-bold;
   text-align: left;
   margin-left: 15pt;
   margin-right: 15pt;
+}
+
+.card > .company-container > div > h4 {
+  font-size: 13pt;
+  font-family: garamond-bold;
+  text-align: left;
+  margin-top: -10pt;
+  margin-left: 15pt;
+  margin-right: 15pt;
+  font-style: italic;
+  color: red;
 }
 
 .card > .company-container > img {
@@ -45,10 +56,11 @@
   margin-right: 15pt;
 }
 
-.card >h6 {
-  text-align: left;
-  font-style: italic;
-  color: grey;
+.card > .small-info-container {
+  display: flex;
+  justify-content: space-between;
   margin-left: 15pt;
   margin-right: 15pt;
+  font-style: italic;
+  color: grey;
 }
